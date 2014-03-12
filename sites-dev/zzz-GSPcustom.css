@@ -1,0 +1,269 @@
+﻿/**********************************
+** COMMON BUTTONS AND STYLES
+**********************************/
+.hidden{
+	display:none;
+}
+
+/* <a class="lilButton bgWhatever textWhatever">
+		<img location />Button Text
+	</a>*/
+a.lilButton {
+	border-radius:5px;
+	margin: 10px 3px 0px 0px;
+	white-space:nowrap;
+	padding:5px;
+	display:inline-block;
+}
+a.lilButton:hover {
+	background-color:#e96f35;
+	color:white;
+}
+a.lilButton img{
+	border:0px;
+	vertical-align:middle;
+}
+
+/*******GSP COLORS *************/
+.bgBlue {background-color:#4d7a98; color:white;}
+.bgOrange {background-color:#e96f35; color:white;}
+.bgGreen {background-color:#719c4a; color:white;}
+.bgPurple {background-color:#725999; color:white;}
+.bgRed {background-color:#920e16; color:white;}
+.bgDkGray {background-color:#4a4a4a; color:white;}
+.bgMedGray {background-color:#959595; color:white;}
+.bgLtGray {background-color:#efefef; color:white;}
+
+.borderBlue {border-color:#4d7a98;}
+.borderOrange {border-color:#e96f35;}
+.borderGreen {border-color:#719c4a;}
+.borderPurple {border-color:#725999;}
+.borderRed {border-color:#920e16;}
+.borderDkGray {border-color:#4a4a4a;}
+.borderMedGray {border-color:#959595;}
+.borderLtGray {border-color:#efefef;}
+
+.textBlue {color:#4d7a98;}
+.textOrange {color:#e96f35;}
+.textGreen {color:#719c4a;}
+.textPurple {color:#725999;}
+.textRed {color:#920e16;}
+.textDkGray {color:#4a4a4a;}
+.textMedGray {color:#959595;}
+.textLtGray {color:#efefef;}
+.textWhite{	color:#ffffff;}
+}
+
+
+/*******COLOR BOXES***********
+	<colorBox>
+		<colorBoxHeader></colorBoxHeader>
+		<colorBoxBody>
+			put web parts here and they format with same border as colorBoxBody. Don't nest web part in anything, just put them in main colorbox. 
+		</colorBoxBody>
+	</colorBox>
+*****************************/
+
+.colorBox{
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.colorBoxHeader, .colorBox .ms-webpart-titleText {
+	padding:5px;
+	font-size:1.2em;
+	border-width:1px;
+	border-style:solid;
+	border-radius:5px;
+}
+.colorBoxBody, .colorBox .ms-WPBorder{
+	width:90%;
+	padding:10px;
+	margin:0px auto;
+	padding-top:10px;
+	border-width:1px;
+	border-style:solid;
+	border-top:0px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+
+/*******************************
+** MASTER PAGE
+********************************/
+/* styles for the site icon*/
+#titleAreaBox {
+	margin: auto 20px auto 0px;
+}
+#siteIconGSP {
+	width:200px;
+	height:64px;
+	margin-right:20px;
+	float:left;
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+	overflow:hidden;
+	position:relative;
+}
+.siteIconNoHover {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+}
+.siteIconHover {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;
+	width:100%;
+	height:100%;
+	background-color:#4d7a98;
+	opacity:0.0;
+}
+.littleHouse {
+	position:absolute;
+	left:15px;
+	bottom:0px;
+	z-index:10;
+	color:#ffffff; /*should be the same color as page BG, otherwise you get an awkward little floating house */
+	font-size:2em;
+}
+.goHome {
+	position:absolute;
+	left:70px;
+	bottom:0px;
+	font-size:2em;
+	font-family: "Nimbus Sans Novus","Segow UI Light","Segoe UI", Tahoma, Helvetica, Arial, sans-serif;
+	color:#ececec;
+}
+
+/*styles for the farmwide navigation at the top of the Quick Launch*/
+.gspTopSites{
+	display:none;
+}
+.gspTopSites .ms-core-listMenu-root {
+	margin-left: -20px;
+}
+.gspTopSites .ms-core-listMenu-item {
+	padding-left:30px !important;
+}
+.gspTopSites ul.dynamic {
+	padding-left:0px;
+	white-space:nowrap;
+}
+.gspTopSites li.dynamic a {
+	padding:3px 0px;
+}
+.gspTopSites .dynamic-children.additional-background {
+	padding-right:15px;
+}
+.gspTopSites a:hover {
+	text-decoration:underline;
+}
+.qlButton {
+	margin-left:-20px;
+	padding:3px 3px 3px 20px;
+	color:#303030;
+	font-size: 1.1em;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.qlButtonHover {
+	background: rgba(224, 224, 224, 0.6);
+	cursor:pointer;
+}
+.qlButtonClicked{
+	background: rgba(207, 207, 207, 0.6);
+}
+.siteOwners {
+	display:none;
+}
+.siteOwners .ms-core-listMenu-root{
+	margin-left:-20px;
+}
+.siteOwners .ms-core-listMenu-item {
+	padding-left:30px !important;
+}
+
+/**************************************
+**** Quick Launch collapse/expand
+*****************************************/
+.collapseLinkCollapsed {
+	background-color:red;
+}
+a.arrowButton {
+	display:inline;
+	float:right;
+	position:relative;
+	z-index:20;
+	font-size:1.3em;
+	color:#cfcfcf;
+}
+a.arrowButton:hover{
+	color:#e96f35;
+}
+.parentSelected {
+	border-bottom:1px solid #4a4a4a;
+}
+
+/****************************************
+** SHAREPOINT OVERRIDES
+***************************************/
+label.ms-hidden { /*added so that site titles default to showing */
+	position:relative;
+	top:0px;
+	overflow:hidden;
+	height:auto;
+	width:auto;
+}
+.ms-breadcrumb-anchor { /*done so we can use our button instead of default SP anchor button */
+    display: none;
+}
+.ms-breadcrumb-menu {
+    background-color: inherit;
+    box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.0);
+}
+.ms-core-listMenu-root li a{
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;	
+}
+.ms-SPZone > .s4-wpActive, .ms-rtestate-write > .ms-rte-wpbox > div > .s4wpActive {	
+	padding:5px 5px 0px 0px;
+}
+.ms-textXLarge {
+	font-size:1.2em;
+}
+.ms-vl-sectionHeader { /*on pages like Site Contents, causes headers to take up full width, rather than just having BG under text */
+	display:block;	
+}
+.ms-webpart-chrome-title{
+	margin-bottom:0px;
+}
+.ms-webpart-titleText, .ms-webpart-titleText > a /*web part titles */
+{
+	background-color: #efefef;
+	border-radius: 5px;
+	padding:2px 5px;
+}
+.ms-WPBorder{
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	border-top:0px;
+	border-width:2px;
+	border-color:#efefef;
+}
+.ms-WPBorderBorderOnly { /*for web parts where selected chrome is "border only*/
+	border:2px solid #efefef;
+	border-radius:10px;
+	padding:10px;
+}
+.ms-wpContentDivSpace { /*indenting web part content under the title */
+	margin:-3px 10px 0px 10px;
+	padding:10px;
+}
+td.ms-webpartpagedescription{ /*hiding the page description on legacy pages*/
+	display:none;
+}
+tr.s4-die { /*hiding the page name that appears beneath site title on legacy pages*/
+	display:none;
+}

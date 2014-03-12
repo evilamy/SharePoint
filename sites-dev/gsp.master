@@ -48,6 +48,8 @@
 	<SharePoint:CssRegistration Name="http://na-tstsp-01/sites/dev/Style Library/font-awesome-4.0.3/css/font-awesome.min.css" runat="server" />
 <!-- calling in scripts -->	
 	<Script type="text/javascript" src="http://na-tstsp-01/sites/dev/scripts/jquery-1.10.2.min.js"></script>
+	<Script type="text/javascript" src="http://na-tstsp-01/sites/dev/scripts/jquery.SPServices-2014.01.min.js"></script>
+	<script type="text/javascript" src="http://na-tstsp-01/sites/dev/Scripts/jquery-ui-1.10.4.custom.min.js"> </script>
 	<Script type="text/javascript" src="http://na-tstsp-01/sites/dev/scripts/gspCustom.js"></script>
 
 </head>
@@ -762,11 +764,12 @@ See "Begin Firmwade Navigation" further down the page.  -->
 _spBodyOnLoadFunctionNames.push("populateOwners");
 
 $(function () {
-	var topSitesButton = new GSP.gspShowHide('buttonTopSites', 'gspTopSites', 'qlButtonHover', 'qlButtonClicked');
-	var whereAmIButton = new GSP.gspShowHide('buttonWhereAmI', 'ms-breadcrumb-menu', 'qlButtonHover', 'qlButtonClicked');
-	var ownersButton = new GSP.gspShowHide('buttonWhoOwns', 'siteOwners', 'qlButtonHover', 'qlButtonClicked');
+	var topSitesButton = new GSP.collapseExpandOnClick('buttonTopSites', 'gspTopSites', 'qlButtonHover', 'qlButtonClicked');
+	var whereAmIButton = new GSP.collapseExpandOnClick('buttonWhereAmI', 'ms-breadcrumb-menu', 'qlButtonHover', 'qlButtonClicked');
+	var ownersButton = new GSP.collapseExpandOnClick('buttonWhoOwns', 'siteOwners', 'qlButtonHover', 'qlButtonClicked');
 	var siteIconHover = new GSP.scaleAndShow('siteIconGSP', 'littleHouse', 'siteIconHover', 2, 7);
-	var quickLaunch = new GSP.makeQLDropdown('ms-core-listMenu-root');
+	var quickLaunch = new GSP.qlDropdown('zz16_RootAspMenu');	
+	var formatWebPartsInColorBoxes = new GSP.formatNestedWebPart('ms-webpart-titleText', 'colorBoxBody');
 });
 
 </script>
