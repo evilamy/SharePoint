@@ -103,6 +103,7 @@ a.lilButton img{
 	border-bottom-right-radius:10px;
 	overflow:hidden;
 	position:relative;
+	background-color:#426983;
 }
 .siteIconNoHover {
 	position:absolute;

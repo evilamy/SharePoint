@@ -19,11 +19,7 @@
 	<meta http-equiv="Expires" content="0" />
 	<SharePoint:SPPinnedSiteTile runat="server" TileUrl="/_layouts/15/images/SharePointMetroAppTile.png" TileColor="#0072C6" />
 	<SharePoint:RobotsMetaTag runat="server"/>
-	<SharePoint:PageTitle runat="server">
-		<asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server">
-			<SharePoint:ProjectProperty Property="Title" runat="server" />
-		</asp:ContentPlaceHolder>
-	</SharePoint:PageTitle>
+	<SharePoint:PageTitle runat="server"><asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server"><SharePoint:ProjectProperty Property="Title" runat="server" /></asp:ContentPlaceHolder></SharePoint:PageTitle>
 	<SharePoint:SPShortcutIcon runat="server" IconUrl="/_layouts/15/images/favicon.ico?rev=23" />
 	<SharePoint:StartScript runat="server" />
 	<SharePoint:CssLink runat="server" Version="15"/>
@@ -44,13 +40,13 @@
 		<asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" runat="server" />
 	</SharePoint:AjaxDelta>
 	<SharePoint:CssRegistration Name="Themable/corev15.css" runat="server" />
-	<SharePoint:CssRegistration Name="http://na-tstsp-01/sites/dev/Style Library/zzz-GSPcustom.css" runat="server" />
-	<SharePoint:CssRegistration Name="http://na-tstsp-01/sites/dev/Style Library/font-awesome-4.0.3/css/font-awesome.min.css" runat="server" />
+	<SharePoint:CssRegistration Name="http://gspportalnew/sites/dev/Style Library/zzz-GSPcustom.css" runat="server" />
+	<SharePoint:CssRegistration Name="http://gspportalnew/sites/dev/Style Library/font-awesome/css/font-awesome.min.css" runat="server" />
 <!-- calling in scripts -->	
-	<Script type="text/javascript" src="http://na-tstsp-01/sites/dev/scripts/jquery-1.10.2.min.js"></script>
-	<Script type="text/javascript" src="http://na-tstsp-01/sites/dev/scripts/jquery.SPServices-2014.01.min.js"></script>
-	<script type="text/javascript" src="http://na-tstsp-01/sites/dev/Scripts/jquery-ui-1.10.4.custom.min.js"> </script>
-	<Script type="text/javascript" src="http://na-tstsp-01/sites/dev/scripts/gspCustom.js"></script>
+	<Script type="text/javascript" src="http://gspportalnew/sites/dev/scripts/jquery-1.10.2.min.js"></script>
+	<Script type="text/javascript" src="http://gspportalnew/sites/dev/scripts/jquery.SPServices-2014.01.min.js"></script>
+	<script type="text/javascript" src="http://gspportalnew/sites/dev/Scripts/jquery-ui-1.10.4.custom.min.js"> </script>
+	<Script type="text/javascript" src="http://gspportalnew/sites/dev/scripts/gspCustom.js"></script>
 
 </head>
 <body>
@@ -126,8 +122,7 @@
 						MenuAlignment="Right"
 						MenuNotVisibleHtml="&amp;nbsp;"
 						LargeIconMode="false"
-						>
-						<CustomTemplate>
+						><CustomTemplate>
 						<SharePoint:FeatureMenuTemplate runat="server"
 							FeatureScope="Site"
 							Location="Microsoft.SharePoint.StandardMenu"
@@ -209,7 +204,7 @@
 							  ClientOnClickScript="var mswlh = window.location.href; if (mswlh.indexOf('?')==-1) { window.location = mswlh + '?mobile=1'; } else { window.location = mswlh + '&mobile=1'; }" />
 						</SharePoint:FeatureMenuTemplate>
 						</CustomTemplate>
-					  </SharePoint:SiteActions></span>
+					  	</SharePoint:SiteActions></span>
 <span id="ms-help">
 	<SharePoint:ThemedClusteredHoverImage
 		runat="server"
@@ -249,17 +244,16 @@
 			<SharePoint:SPRibbon
 				runat="server"
 				PlaceholderElementId="RibbonContainer"
-				CssFile="" >
-				<SharePoint:SPRibbonPeripheralContent
+				CssFile="" ><SharePoint:SPRibbonPeripheralContent
 					runat="server"
 					CssClass="ms-core-defaultFont ms-dialogHidden"
 					Location="TabRowLeft">
-				</SharePoint:SPRibbonPeripheralContent>
-				<SharePoint:SPRibbonPeripheralContent
+				</SharePoint:SPRibbonPeripheralContent><SharePoint:SPRibbonPeripheralContent
 					runat="server"
 					Location="TabRowRight"
 					ID="RibbonTabRowRight"
 					CssClass="s4-trc-container s4-notdlg ms-core-defaultFont">
+		
 					<SharePoint:SPSharePromotedActionButton runat="server"/>
 					<SharePoint:DelegateControl runat="server" ControlId="PromotedActions" AllowMultipleControls="true" />
 					<SharePoint:SPSyncPromotedActionButton runat="server"/>
@@ -340,8 +334,7 @@
 	HoverOffsetY="196"
 	Height="16"
 	Width="16" />
-				</SharePoint:SPRibbonPeripheralContent>
-			</SharePoint:SPRibbon>
+				</SharePoint:SPRibbonPeripheralContent></SharePoint:SPRibbon>
 		</SharePoint:AjaxDelta>
 	</div>
 	<SharePoint:AjaxDelta id="DeltaSPNavigation" runat="server">
@@ -377,22 +370,10 @@
 		<div id="titleAreaRow"
 			class="ms-tableRow">
 <!-- BEGIN SITE ICON -->
-<SharePoint:SPSimpleSiteLink  runat="server" id="onetidProjectPropertyTitleGraphic">
-	<div id="siteIconGSP" class="ms-tableCell ms-verticalAlignTop">
-		<div class="littleHouse">
-			<i class="fa fa-home"></i>
-		</div>
-		<div class="siteIconNoHover">
-			<SharePoint:AjaxDelta id="DeltaSiteLogo" BlockElement="true" runat="server">				
+<SharePoint:SPSimpleSiteLink  runat="server" id="onetidProjectPropertyTitleGraphic"><div id="siteIconGSP" class="ms-tableCell ms-verticalAlignTop"><div class="siteIconNoHover"><SharePoint:AjaxDelta id="DeltaSiteLogo" BlockElement="true" runat="server">
+							
 					<SharePoint:SiteLogoImage name="onetidHeadbnnr0" id="onetidHeadbnnr2" LogoImageUrl="/_layouts/15/images/siteIcon.png?rev=23" runat="server"/>	
-			</SharePoint:AjaxDelta>
-		</div>
-		<div class="siteIconHover">
-			<div class="goHome">Home
-			</div>
-		</div>
-	</div>
-</SharePoint:SPSimpleSiteLink>
+			</SharePoint:AjaxDelta></div><div class="siteIconHover"><div class="littleHouse"><i class="fa fa-home"></i></div><div class="goHome">Home </div></div></div></SharePoint:SPSimpleSiteLink>
 <!-- END SITE ICON -->
 
 			<div class="ms-breadcrumb-box ms-tableCell ms-verticalAlignTop">
@@ -413,11 +394,8 @@ See "Begin Firmwade Navigation" further down the page.  -->
 			  runat="server"
 			  RenderCurrentNodeAsLink="true"
 				  SiteMapProvider="SPContentMapProvider"
-			  CentralAdminSiteMapProvider="SPXmlAdminContentMapProvider">
-		<PATHSEPARATORTEMPLATE>
-		  <SharePoint:ClusteredDirectionalSeparatorArrow runat="server" />
-		</PATHSEPARATORTEMPLATE>
-	  </SharePoint:SPTitleBreadcrumb>
+			  CentralAdminSiteMapProvider="SPXmlAdminContentMapProvider"><PATHSEPARATORTEMPLATE><SharePoint:ClusteredDirectionalSeparatorArrow runat="server" />
+		</PATHSEPARATORTEMPLATE></SharePoint:SPTitleBreadcrumb>
 	</asp:ContentPlaceHolder>
   </SharePoint:AjaxDelta>
   <SharePoint:AjaxDelta BlockElement="true" id="DeltaPlaceHolderPageDescription" CssClass="ms-displayInlineBlock ms-normalWrap" runat="server">
@@ -427,9 +405,7 @@ See "Begin Firmwade Navigation" further down the page.  -->
 	<span class="ms-accessible" id="ms-pageDescription">
 	  <asp:ContentPlaceHolder id="PlaceHolderPageDescription" runat="server" />
 	</span>
-	<SharePoint:ScriptBlock runat="server">
-	  _spBodyOnLoadFunctionNames.push("setupPageDescriptionCallout");
-	</SharePoint:ScriptBlock>
+	<SharePoint:ScriptBlock runat="server">_spBodyOnLoadFunctionNames.push("setupPageDescriptionCallout"); </SharePoint:ScriptBlock>
   </SharePoint:AjaxDelta>
 </h1>
 			</div>
@@ -457,8 +433,7 @@ See "Begin Firmwade Navigation" further down the page.  -->
 	Top Sites
 </div>
 <SharePoint:AjaxDelta id="DeltaTopNavigation" BlockElement="true" CssClass="ms-displayInline ms-core-navigation gspTopSites" role="navigation" runat="server">
-	<SharePoint:DelegateControl runat="server" ControlId="TopNavigationDataSource" Id="topNavigationDelegate">
-		<Template_Controls>
+	<SharePoint:DelegateControl runat="server" ControlId="TopNavigationDataSource" Id="topNavigationDelegate"><Template_Controls>
 			<asp:SiteMapDataSource
 				ShowStartingNode="False"
 				SiteMapProvider="SPNavigationProvider"
@@ -466,7 +441,7 @@ See "Begin Firmwade Navigation" further down the page.  -->
 				runat="server"
 				StartingNodeUrl="sid:1002"/>
 		</Template_Controls>
-	</SharePoint:DelegateControl>
+					</SharePoint:DelegateControl>
 	<asp:ContentPlaceHolder id="PlaceHolderTopNavBar" runat="server">
 		<SharePoint:AspMenu
 			ID="TopNavigationMenu"
@@ -503,12 +478,8 @@ See "Begin Firmwade Navigation" further down the page.  -->
 		IconHeight="16"
 		AnchorCss="ms-breadcrumb-anchor"
 		AnchorOpenCss="ms-breadcrumb-anchor-open"
-		MenuCss="ms-breadcrumb-menu ms-noList">
-		<div class="ms-breadcrumb-top">
-			<asp:Label runat="server" CssClass="ms-breadcrumb-header" Text="You Are Here:" />
-		</div>
-		<asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" runat="server">
-		<SharePoint:ListSiteMapPath
+		MenuCss="ms-breadcrumb-menu ms-noList"><div class="ms-breadcrumb-top">
+			<asp:Label runat="server" CssClass="ms-breadcrumb-header" Text="You Are Here:" /></div><asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" runat="server"><SharePoint:ListSiteMapPath
 				runat="server"
 				SiteMapProviders="SPSiteMapProvider,SPContentMapProvider"
 				RenderCurrentNodeAsLink="false"
@@ -529,9 +500,7 @@ See "Begin Firmwade Navigation" further down the page.  -->
 				RTLNodeImageHeight="16"
 				RTLNodeImageUrl="/_layouts/15/images/spcommon.png?rev=23"
 				HideInteriorRootNodes="true"
-				SkipLinkText="" />
-				</asp:ContentPlaceHolder>
-	</SharePoint:PopoutMenu>
+				SkipLinkText="" /></asp:ContentPlaceHolder></SharePoint:PopoutMenu>
 </SharePoint:AjaxDelta>
 
 <!-- CLOSE site collection menu -->
@@ -565,6 +534,7 @@ See "Begin Firmwade Navigation" further down the page.  -->
 					EnableViewState="false"
 					><SharePoint:delegatecontrol runat="server" ControlId="QuickLaunchDataSource">
 				
+				
 						<Template_Controls>
 							<asp:SiteMapDataSource SiteMapProvider="SPNavigationProvider" ShowStartingNode="False" id="QuickLaunchSiteMap" StartingNodeUrl="sid:1025" runat="server" />
 						</Template_Controls>
@@ -574,10 +544,9 @@ See "Begin Firmwade Navigation" further down the page.  -->
 						runat="server"
 						ContainedControl="TreeView"
 						CssClass="ms-tv-box"
-					>
-						<SharePoint:SPLinkButton runat="server" NavigateUrl="~site/_layouts/15/viewlsts.aspx" id="idNavLinkSiteHierarchyV4" Text="<%$Resources:wss,treeview_header%>" accesskey="<%$Resources:wss,quiklnch_allcontent_AK%>"
-						CssClass="ms-tv-header" />
-							<SharePoint:DelegateControl runat="server" ControlId="TreeViewAndDataSource">
+					><SharePoint:SPLinkButton runat="server" NavigateUrl="~site/_layouts/15/viewlsts.aspx" id="idNavLinkSiteHierarchyV4" Text="<%$Resources:wss,treeview_header%>" accesskey="<%$Resources:wss,quiklnch_allcontent_AK%>"
+						CssClass="ms-tv-header" /><SharePoint:DelegateControl runat="server" ControlId="TreeViewAndDataSource">
+				
 								<Template_Controls>
 								<SharePoint:SPHierarchyDataSourceControl
 									runat="server"
@@ -606,8 +575,7 @@ See "Begin Firmwade Navigation" further down the page.  -->
 									</SharePoint:SPTreeView>
 								</SharePoint:SPRememberScroll>
 								</Template_Controls>
-							</SharePoint:DelegateControl>
-					</SharePoint:SPNavigationManager>
+							</SharePoint:DelegateControl></SharePoint:SPNavigationManager>
 				<asp:ContentPlaceHolder id="PlaceHolderQuickLaunchBottom" runat="server">
 					<div class="ms-core-listMenu-verticalBox">
 						<SharePoint:ClusteredSPLinkButton
@@ -662,114 +630,17 @@ See "Begin Firmwade Navigation" further down the page.  -->
 	<SharePoint:AjaxDelta id="DeltaPlaceHolderUtilityContent" runat="server">
 		<asp:ContentPlaceHolder id="PlaceHolderUtilityContent" runat="server"/>
 	</SharePoint:AjaxDelta>
-	<SharePoint:ScriptBlock runat="server">
-		var g_Workspace = "s4-workspace";
-	</SharePoint:ScriptBlock>
+	<SharePoint:ScriptBlock runat="server">var g_Workspace = "s4-workspace"; </SharePoint:ScriptBlock>
 <script type="text/javascript">
-//This stuff uses REST API to populate the siteOwners area
-(function () {
-	function populateOwners() {
-		var web = _spPageContextInfo.webAbsoluteUrl;
-		
-		getSiteTitle();
-		/*getOwnerGroupNumber();*/
-		
-		function getSiteTitle() {
-			$.ajax({
-				url: web + "/_api/web",
-				type: "GET",
-				headers: {
-					"accept": "application/json;odata=verbose",
-				},
-				success: function (data) {
-					var siteTitle = data.d.Title;
-					getOwnerGroupNumber(siteTitle)
-				},
-				error: function (error) {
-					alert("TROUBLE! Getting Site Title: " + JSON.stringify(error));
-				}
-			});
-
-		}
-		
-		function getOwnerGroupNumber(siteTitle) {
-			$.ajax({
-				url: web + "/_api/web/sitegroups",
-				type: "GET",
-				headers: {
-					"accept": "application/json;odata=verbose",
-				},
-				success: function (data) {
-					var message;
-					$.each(data.d.results, function(index, group) {
-						if(group.LoginName.indexOf(siteTitle + " Owners") >= 0) {
-							var groupID = group.Id;
-							getMembersByGroupId(groupID);
-						}
-					});
-				},
-				error: function (error) {
-					alert("TROUBLE! Getting Owner Group Number: " + JSON.stringify(error));
-				}
-			});
-		}//close getOwnerGroupNumber
-		
-		function getMembersByGroupId(groupID) {
-			$.ajax({
-				url: web + "/_api/web/sitegroups(" + groupID + ")/Users",
-				type: "GET",
-				headers: {
-					"accept": "application/json;odata=verbose",
-				},
-				success: function (data) {
-					var message;
-					$.each(data.d.results, function(index, user) {
-						var userId= user.Id;
-						getMemberNameById(userId);
-					});
-				},
-				error: function (error) {
-					alert("TROUBLE! Getting Group Members " + JSON.stringify(error));
-				}
-			});
-
-		}
-		
-		function getMemberNameById(memberID) {
-			$.ajax({
-				url: web + "/_api/web/getUserById(" + memberID + ")",
-				type: "GET",
-				headers: {
-					"accept": "application/json;odata=verbose",
-				},
-				success: function (data) {
-					var userName;
-					userName = data.d.Title;
-					userEmail = data.d.Email;
-					userLoginName = data.d.LoginName;
-					sniphere = userLoginName.indexOf('|');
-					userLoginName = userLoginName.substring(sniphere+1);
-					$('.ownersList').append("<li class='static'><a href='http://na-tstsp-01:88/person.aspx?accountname=" + userLoginName + "' target='_blank' class='static menu-item ms-core-listMenu-item ms-displayInline ms-navEdit-linkNode'>" + userName + "</a></li>");
-				},
-				error: function (error) {
-					alert("Trouble Getting Member Name " + JSON.stringify(error));
-				}
-			});
-			
-		}
-		
-	}
-	window['populateOwners'] = populateOwners;
-}) ();
-_spBodyOnLoadFunctionNames.push("populateOwners");
 
 $(function () {
 	var topSitesButton = new GSP.collapseExpandOnClick('buttonTopSites', 'gspTopSites', 'qlButtonHover', 'qlButtonClicked');
 	var whereAmIButton = new GSP.collapseExpandOnClick('buttonWhereAmI', 'ms-breadcrumb-menu', 'qlButtonHover', 'qlButtonClicked');
 	var ownersButton = new GSP.collapseExpandOnClick('buttonWhoOwns', 'siteOwners', 'qlButtonHover', 'qlButtonClicked');
 	var siteIconHover = new GSP.scaleAndShow('siteIconGSP', 'littleHouse', 'siteIconHover', 2, 7);
-	var quickLaunch = new GSP.qlDropdown('zz16_RootAspMenu');	
+	var quickLaunch = new GSP.qlDropdown();
 	var formatWebPartsInColorBoxes = new GSP.formatNestedWebPart('ms-webpart-titleText', 'colorBoxBody');
+	var populateWhoOwnsThisSite = new GSP.WhoOwnsSite();
 });
 
 </script>

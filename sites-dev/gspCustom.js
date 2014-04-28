@@ -147,8 +147,8 @@
 	
 	
 	/* stuff done to make the Quick Launch a collapse/expand one */
-	ns.qlDropdown = function(root) {
-		var rootUL = $("#" + root);
+	ns.qlDropdown = function() {
+		var rootUL = $("div[id$='_V4QuickLaunchMenu']").find("ul[id$='_RootAspMenu']");
 		
 		//if the first LI off the root has subitems, add the arrow button//
 		rootUL.children('li').each(function(index) {
@@ -201,8 +201,76 @@
 			showMe.stop().animate({opacity:'0.0'}, 400);
 			scaleMe.stop().animate({fontSize : origFontSize, bottom : origBottom });
 		});
-	}//close ns.scaleAndShow	
+	},//close ns.scaleAndShow
+	
+	/*WhoOwnsSite: pass in nothing, and use a series of REST API calls to populate the "Who Owns This Site?" area above the QL */
+	ns.WhoOwnsSite = function() {
 		
+			var web = _spPageContextInfo.webAbsoluteUrl;
+			getAssocOwnerGroupNumber();
+						
+			function getAssocOwnerGroupNumber(siteTitle) {
+				$.ajax({
+					url: web + "/_api/web/AssociatedOwnerGroup",
+					type: "GET",
+					headers: {
+						"accept": "application/json;odata=verbose",
+					},
+					success: function (data) {
+								var groupID = data.d.Id;
+								getMembersByGroupId(groupID);
+					},
+					error: function (error) {
+						alert("TROUBLE! Getting Owner Group Number: " + JSON.stringify(error));
+					}
+				});
+			}//close getOwnerGroupNumber
+			
+			function getMembersByGroupId(groupID) {
+				$.ajax({
+					url: web + "/_api/web/sitegroups(" + groupID + ")/Users",
+					type: "GET",
+					headers: {
+						"accept": "application/json;odata=verbose",
+					},
+					success: function (data) {
+						var message;
+						$.each(data.d.results, function(index, user) {
+							var userId= user.Id;
+							getMemberNameById(userId);
+						});
+					},
+					error: function (error) {
+						alert("TROUBLE! Getting Group Members " + JSON.stringify(error));
+					}
+				});
+			}//close getMembersByGroupID
+			
+			function getMemberNameById(memberID) {
+				$.ajax({
+					url: web + "/_api/web/getUserById(" + memberID + ")",
+					type: "GET",
+					headers: {
+						"accept": "application/json;odata=verbose",
+					},
+					success: function (data) {
+						var userName;
+						userName = data.d.Title;
+						userEmail = data.d.Email;
+						userLoginName = data.d.LoginName;
+						sniphere = userLoginName.indexOf('|');
+						userLoginName = userLoginName.substring(sniphere+1);
+						if (userName != 'System Account') {
+							$('.ownersList').append("<li class='static'><a href='http://na-tstsp-01:88/person.aspx?accountname=" + userLoginName + "' target='_blank' class='static menu-item ms-core-listMenu-item ms-displayInline ms-navEdit-linkNode'>" + userName + "</a></li>");
+						}
+					},
+					error: function (error) {
+						alert("Trouble Getting Member Name " + JSON.stringify(error));
+					}
+				});		
+			}//close GetMemberNameById
+	}	//close WhoOwnsSite
+				
 }//close anonymous function
 
 
